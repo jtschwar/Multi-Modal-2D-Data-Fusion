@@ -71,7 +71,6 @@ for kk in tqdm(range(nIter)):
 	if regularize:
 		for zz in range(nz):
 			xx[zz*nPix:(zz+1)*nPix] = reg.fgp_tv( xx[zz*nPix:(zz+1)*nPix], lambdaTV, ng)
-	else: xx[xx<0] = 0
 
 	# Measure Cost Function
 	costHAADF[kk] = lsqFun(xx); costEDS[kk] = poissonFun(xx)
