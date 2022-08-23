@@ -1,0 +1,5 @@
+matplotlib
+pybind11
+numpy
+scipy
+h5py

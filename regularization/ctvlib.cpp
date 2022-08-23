@@ -148,7 +148,7 @@ VectorXf ctvlib::fgp_tv(Eigen::MatrixXf &Input, float lambda, int ng)
     {
         // Compute Gradient of Objective Function
         obj_func2D(Input, Output, Px, Py, lambda);
-        
+
         // Take step towards minus of gradient
         grad_func2D(Output, Px, Py, multip);
         
