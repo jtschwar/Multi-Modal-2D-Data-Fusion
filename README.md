@@ -23,7 +23,7 @@ Jonathan Schwartz<sup>1</sup>, Zichao Wendy Di<sup>2</sup>, Yi Jiang<sup>3</sup>
 
 To clone the repositiory run: 
 
-` git clone --recursive https://github.com/jtschwar/tomo_TV.git`
+` git clone --recursive https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion.git`
 
 Compile the regularization C++ scripts prior to running the example jupyter notebook.
 
