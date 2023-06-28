@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -fPIC -Wno-div-by-zero -shared -std=c++11 -undefined dynamic_lookup
+CXXFLAGS = -fPIC -Wno-div-by-zero -shared -std=c++17 -undefined dynamic_lookup
 CXXOPT = -O3 -march=native 
 EIGEN = -I ../thirdparty/eigen
 PYBIND11 = `python3 -m pybind11 --includes` 
