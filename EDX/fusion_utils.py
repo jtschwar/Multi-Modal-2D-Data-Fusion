@@ -74,6 +74,36 @@ def create_measurement_matrix(nx, ny, nz):
 
 	return A
 
+def create_weighted_measurement_matrix(nx, ny, nz, zNums, gamma,method=0):
+	#Create Measurement Matrix.
+	vals = np.zeros([nz*ny*nx], dtype=np.float16)
+	row =  np.zeros([nz*ny*nx], dtype=int)
+	col =  np.zeros([nz*ny*nx], dtype=int)
+	vals[:] = 1
+
+	ii = 0; ind = 0
+	while ii < nz*nx*ny:
+		for jj in range(nz):
+			row[ii+jj] = ind
+			col[ii+jj] = ind + nx*ny*jj
+	
+			if method == 0:
+				pass 
+			if method == 1:
+				vals[ii+jj] = zNums[jj] / np.mean(zNums) # Z_{i}^{gamma} / ( sum_{i} ( Z_i ) / Nelements )
+			if method == 2:
+				vals[ii+jj] = zNums[jj]**gamma / np.mean(zNums**gamma) # Z_{i}^{gamma} / ( sum_{i} ( Z_i^{gamma} ) / Nelements )
+			if method == 3:
+				vals[ii+jj] = zNums[jj] / np.sum(zNums) # Z_{i} / sum_{i} Z_i
+			if method == 4:
+				vals[ii+jj] = zNums[jj]**gamma / np.sum(zNums**gamma) # Z_{i}^{gamma} / sum_{i} ( Z_i^{gamma} )
+
+		ii += nz
+		ind += 1
+	A = csr_matrix((vals, (row, col)), shape=(nx*ny, nz*nx*ny), dtype=np.float32)
+
+	return A
+
 def calculate_curvature(dataX, dataY):
     '''data is assumed to be same size
 	Uses Wendy's method'''
