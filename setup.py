@@ -26,7 +26,7 @@ setup(
     name="multimodal-fusion",
     version="0.1.0",
     author="Jonathan Schwartz",
-    author_email="jtschwar@umich.edu",
+    author_email="jtschwar@gmail.com",
     url="https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion",
     description="2D Fused Multi-Modal Electron Microscopy",
     packages=["multimodal_fusion"],

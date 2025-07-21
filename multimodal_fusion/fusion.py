@@ -1,10 +1,14 @@
+from multimodal_fusion import utils
 from scipy.sparse import spdiags
-from fused_mm import utils
 from tqdm import tqdm
 import numpy as np
 
-try: import ctvlib; cRegFlag = True
-except: cRegFlag = False
+try: 
+    from multimodal_fusion import ctvlib
+    cRegFlag = True
+except: 
+    cRegFlag = False
+    print("Warning: C-libraries not found, using Python implementation of regularization.")
 
 class DataFusion:
     def __init__(self, image, num_elements):
