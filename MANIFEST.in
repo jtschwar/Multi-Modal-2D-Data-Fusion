@@ -1,0 +1,27 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+include MANIFEST.in
+
+# Include all necessary source and header files
+recursive-include regularization *.cpp *.h *.hpp
+recursive-include thirdparty/eigen/Eigen *
+recursive-include thirdparty/eigen/unsupported/Eigen *
+
+# Exclude unnecessary Eigen files to keep package size down
+recursive-exclude thirdparty/eigen/.git* *
+recursive-exclude thirdparty/eigen/doc *
+recursive-exclude thirdparty/eigen/test *
+recursive-exclude thirdparty/eigen/bench *
+recursive-exclude thirdparty/eigen/demos *
+recursive-exclude thirdparty/eigen/blas *
+recursive-exclude thirdparty/eigen/lapack *
+recursive-exclude thirdparty/eigen/failtest *
+recursive-exclude thirdparty/eigen/scripts *
+recursive-exclude thirdparty/eigen/ci *
+recursive-exclude thirdparty/eigen/cmake *
+recursive-exclude thirdparty/eigen/debug *
+
+# Include Python source files
+recursive-include multimodal_fusion *.py
