@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.1.1...v0.2.0) (2025-07-21)
+
+
+### Features
+
+* make sure we have the license ([#9](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/9)) ([3d7ced3](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/3d7ced33be9592e0866dfc5468d10ad2d8b01d2f))
+
 ## [0.2.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.1.0...v0.2.0) (2025-07-21)
 
 
