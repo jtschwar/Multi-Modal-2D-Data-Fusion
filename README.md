@@ -14,6 +14,8 @@ pip install multimodal-fusion
 ## Quick Start
 
 ```python
+from multimodal_fusion import DataFusion
+
 # Initialize fusion with list of elements
 elements = ['Co', 'S', 'O']
 fusion = DataFusion(elements)
