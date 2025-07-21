@@ -41,3 +41,68 @@ Jonathan Schwartz<sup>1</sup>, Zichao Wendy Di<sup>2</sup>, Yi Jiang<sup>3</sup>
 [If you use any of the data and source codes in your publications and/or presentations, we request that you cite our paper: J. Schwartz, Z.W. Di, et. al., "Imaging atomic-scale chemistry from fused multi-modal electron microscopy", _npj Comput. Mater._ **8**, 16 (2022).](https://www.nature.com/articles/s41524-021-00692-5)
 
 
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pybind11",
+    "numpy",
+    "scipy",
+    "h5py",
+]
+
+[build-system]
+requires = [
+    "setuptools>=64",
+    "wheel", 
+    "pybind11>=2.10.0",
+    "cmake>=3.18",
+    "ninja; platform_system!='Windows'",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multimodal-fusion"
+version = "0.1.0"
+description = "2D Fused Multi-Modal Electron Microscopy"
+authors = [{name = "Jonathan Schwartz", email = "jtschwar@umich.edu"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pybind11",
+    "numpy",
+    "scipy",
+    "h5py",
+]
+
+[project.urls]
+Homepage = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion"
+Repository = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion.git"
+Issues = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=6.0", "numpy"]
+dev = ["pytest>=6.0", "black", "isort", "mypy"]
+
+[tool.setuptools]
+packages = ["multimodal_fusion"]
+
+[tool.setuptools.package-data]
+"*" = ["*.so", "*.pyd", "*.dll"]

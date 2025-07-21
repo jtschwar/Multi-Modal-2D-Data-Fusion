@@ -6,7 +6,7 @@ import numpy as np
 try: import ctvlib; cRegFlag = True
 except: cRegFlag = False
 
-class Fusion:
+class DataFusion:
     def __init__(self, image, num_elements):
         self.nx, self.ny = image.shape
         self.nz = num_elements
@@ -26,7 +26,7 @@ class Fusion:
         # Make Copy of Raw Measurements for Poisson Maximum Likelihood Term 
         self.xx0 = self.xx.copy()
 
-    def fuse(self, nIter = 50, lambdaHAADF = 0.005, lambdaEDS = 0.005, ng = 15, lambdaTV = 0.1):
+    def run(self, nIter = 50, lambdaHAADF = 0.005, lambdaEDS = 0.005, ng = 15, lambdaTV = 0.1):
 
         # Auxiliary Functions
         lsqFun = lambda inData : 0.5 * np.linalg.norm(self.A.dot(inData**self.gamma) - b) **2
