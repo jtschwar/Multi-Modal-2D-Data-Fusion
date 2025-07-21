@@ -35,7 +35,7 @@ setup(
     zip_safe=False,
     python_requires=">=3.8",
     install_requires=[
-        "numpy>=1.20.0",
+        "numpy",
         "scipy",
         "matplotlib", 
         "h5py",
