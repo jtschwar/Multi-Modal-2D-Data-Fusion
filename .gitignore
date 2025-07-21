@@ -5,3 +5,4 @@
 *.o
 *.pyc
 *.egg
+*.egg-info

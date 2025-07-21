@@ -7,7 +7,7 @@ import pybind11
 # Define the extension module
 ext_modules = [
     Pybind11Extension(
-        "ctvlib",
+        "multimodal_fusion.ctvlib",
         sources=[
             "regularization/ctvlib.cpp",
             "regularization/bindings.cpp",
@@ -15,7 +15,7 @@ ext_modules = [
         include_dirs=[
             pybind11.get_include(),
             "regularization",
-            "third_party/eigen",
+            "thirdparty/eigen",
         ],
         language='c++',
         cxx_std=17,
