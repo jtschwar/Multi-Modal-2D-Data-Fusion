@@ -21,82 +21,37 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: python
+          
+      # Debug outputs
+      - name: Debug outputs
+        run: |
+          echo "release_created: ${{ steps.release.outputs.release_created }}"
+          echo "tag_name: ${{ steps.release.outputs.tag_name }}"
 
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
+    # Remove the condition temporarily to see if builds work
+    # if: ${{ needs.release-please.outputs.release_created }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]  # Start with just Linux for testing
 
     steps:
     - uses: actions/checkout@v4
       with:
-        submodules: recursive  # Important for Eigen submodule!
+        submodules: recursive
 
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.17.0
       env:
-        # Configure cibuildwheel
-        CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-*"
+        CIBW_BUILD: "cp311-*"  # Just Python 3.11 for testing
         CIBW_SKIP: "*-win32 *-manylinux_i686 *-musllinux_*"
-        CIBW_ARCHS_MACOS: "x86_64 arm64"
-        CIBW_ARCHS_LINUX: "x86_64"
-        CIBW_ARCHS_WINDOWS: "AMD64"
-        
-        # Install dependencies before building
         CIBW_BEFORE_BUILD: "pip install pybind11 numpy cmake"
-        
-        # System dependencies
         CIBW_BEFORE_ALL_LINUX: "yum install -y cmake3 eigen3-devel || (apt-get update && apt-get install -y cmake libeigen3-dev)"
-        CIBW_BEFORE_ALL_MACOS: "brew install cmake eigen"
-        CIBW_BEFORE_ALL_WINDOWS: "choco install cmake"
 
     - uses: actions/upload-artifact@v4
       with:
-        name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
+        name: cibw-wheels-${{ matrix.os }}
         path: ./wheelhouse/*.whl
-
-  build_sdist:
-    name: Build source distribution
-    runs-on: ubuntu-latest
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
-    
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive  # Important for Eigen submodule!
-
-    - name: Build sdist
-      run: pipx run build --sdist
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: cibw-sdist
-        path: dist/*.tar.gz
-
-  upload_pypi:
-    needs: [release-please, build_wheels, build_sdist]
-    runs-on: ubuntu-latest
-    if: ${{ needs.release-please.outputs.release_created }}
-    
-    steps:
-    - uses: actions/download-artifact@v4
-      with:
-        pattern: cibw-*
-        path: dist
-        merge-multiple: true
-
-    - uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
-
-    - name: Upload to GitHub Release
-      uses: softprops/action-gh-release@v2
-      with:
-        tag_name: ${{ needs.release-please.outputs.tag_name }}
-        files: dist/*
