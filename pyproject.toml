@@ -12,7 +12,7 @@ version = "0.2.0"
 description = "Multi-Modal Electron Microscopy Data Fusion"
 authors = [{name = "Jonathan Schwartz", email = "jtschwar@umich.edu"}]
 readme = "README.md"
-license = "MIT"  # Fixed: simplified license format
+license = {file = "LICENSE"}
 requires-python = ">=3.8"
 dependencies = [
     "numpy",
