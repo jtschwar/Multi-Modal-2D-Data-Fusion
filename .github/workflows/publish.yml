@@ -33,6 +33,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive  # Important for Eigen submodule!
 
     - name: Build wheels
       uses: pypa/cibuildwheel@v2.17.0
@@ -43,9 +45,13 @@ jobs:
         CIBW_ARCHS_MACOS: "x86_64 arm64"
         CIBW_ARCHS_LINUX: "x86_64"
         CIBW_ARCHS_WINDOWS: "AMD64"
-        # Install dependencies
-        CIBW_BEFORE_ALL_LINUX: "yum install -y cmake3 || apt-get update && apt-get install -y cmake"
-        CIBW_BEFORE_ALL_MACOS: "brew install cmake"
+        
+        # Install dependencies before building
+        CIBW_BEFORE_BUILD: "pip install pybind11 numpy cmake"
+        
+        # System dependencies
+        CIBW_BEFORE_ALL_LINUX: "yum install -y cmake3 eigen3-devel || (apt-get update && apt-get install -y cmake libeigen3-dev)"
+        CIBW_BEFORE_ALL_MACOS: "brew install cmake eigen"
         CIBW_BEFORE_ALL_WINDOWS: "choco install cmake"
 
     - uses: actions/upload-artifact@v4
@@ -61,6 +67,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive  # Important for Eigen submodule!
 
     - name: Build sdist
       run: pipx run build --sdist

@@ -14,12 +14,30 @@ pip install multimodal-fusion
 ## Quick Start
 
 ```python
-from multimodal_fusion import DataFusion
+# Initialize fusion with list of elements
+elements = ['Co', 'S', 'O']
+fusion = DataFusion(elements)
 
-# Load Your Data
-fusion = DataFusion()
+# Load your chemical maps (from any software - ImageJ, Digital Micrograph, etc.)
+# Provide as a dictionary where keys match your element list
+chemical_maps = {
+    'Co': cobalt_map,      # 2D numpy arrays
+    'S': sulfur_map, 
+    'O': oxygen_map
+}
+fusion.load_chemical_maps(chemical_maps)
 
-data = fusion.run()
+# Load the simultaneously acquired HAADF image
+fusion.load_haadf(haadf_image)  # 2D numpy array
+
+# Run the fusion algorithm 
+# We can adjust with regularization parameters
+fusion.run(nIter=50, lambdaTV=0.1)
+
+# Get results in dictionary format
+results = fusion.get_results()
+fused_cobalt = results['Co']
+fused_sulfur = results['S']
 ```
 
 ## Citation
