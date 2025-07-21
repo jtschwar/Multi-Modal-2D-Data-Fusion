@@ -4,3 +4,5 @@
 *.so
 *.o
 *.pyc
+*.egg
+*.egg-info
