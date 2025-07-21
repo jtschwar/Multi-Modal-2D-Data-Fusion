@@ -1,10 +1,13 @@
-from setuptools import setup, Extension
-
-# Simple approach - just require pybind11 to be installed first
+from setuptools import setup
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 import pybind11
+import os
 
-# Define the extension module
+# Get absolute paths to be sure
+project_root = os.path.dirname(os.path.abspath(__file__))
+eigen_include = os.path.join(project_root, "thirdparty", "eigen")
+regularization_include = os.path.join(project_root, "regularization")
+
 ext_modules = [
     Pybind11Extension(
         "multimodal_fusion.ctvlib",
@@ -14,8 +17,8 @@ ext_modules = [
         ],
         include_dirs=[
             pybind11.get_include(),
-            "regularization",
-            "thirdparty/eigen",
+            regularization_include,
+            eigen_include,  # This should make #include <Eigen/Core> work
         ],
         language='c++',
         cxx_std=17,
@@ -23,24 +26,7 @@ ext_modules = [
 ]
 
 setup(
-    name="multimodal-fusion",
-    version="0.1.0",
-    author="Jonathan Schwartz",
-    author_email="jtschwar@gmail.com",
-    url="https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion",
-    description="2D Fused Multi-Modal Electron Microscopy",
-    packages=["multimodal_fusion"],
     ext_modules=ext_modules,
     cmdclass={"build_ext": build_ext},
     zip_safe=False,
-    python_requires=">=3.8",
-    install_requires=[
-        "numpy",
-        "scipy",
-        "matplotlib", 
-        "h5py",
-    ],
-    setup_requires=[
-        "pybind11>=2.10.0",
-    ],
 )
