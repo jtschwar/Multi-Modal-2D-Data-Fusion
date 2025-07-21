@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "multimodal-fusion"
-version = "0.2.0"
+version = "0.3.0"
 description = "Multi-Modal Electron Microscopy Data Fusion"
 authors = [{name = "Jonathan Schwartz", email = "jtschwar@umich.edu"}]
 readme = "README.md"
