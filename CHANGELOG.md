@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.2.0...v0.3.0) (2025-07-21)
+
+
+### Features
+
+* update permissions so we can submit to pypi ([#11](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/11)) ([a44ace5](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/a44ace52949fe8898caf2f1ae21c4d4777d86946))
+
 ## [0.2.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.1.1...v0.2.0) (2025-07-21)
 
 
