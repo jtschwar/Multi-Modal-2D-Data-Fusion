@@ -3,13 +3,12 @@ requires = [
     "setuptools>=64",
     "wheel",
     "pybind11",
-    "setuptools_scm",
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "multimodal-fusion"
-dynamic = ["version"] 
+dynamic = ["version"]
 description = "Multi-Modal Electron Microscopy Data Fusion"
 authors = [{name = "Jonathan Schwartz", email = "jtschwar@gmail.com"}]
 readme = "README.md"
@@ -20,7 +19,7 @@ dependencies = [
     "scipy",
     "matplotlib", 
     "h5py",
-    "tqdm",  
+    "tqdm",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -40,9 +39,10 @@ Homepage = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion"
 Repository = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion.git"
 Issues = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues"
 
-# Add this section to specify which packages to include
 [tool.setuptools.packages.find]
 include = ["multimodal_fusion*"]
 exclude = ["EDX*", "thirdparty*", "regularization*", "third_party*"]
 
-[tool.setuptools_scm]
+# Tell setuptools to get version from __init__.py
+[tool.setuptools.dynamic]
+version = {attr = "multimodal_fusion.__version__"}
