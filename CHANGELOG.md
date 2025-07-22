@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.4.0...v0.5.0) (2025-07-22)
+
+
+### Features
+
+* use setup tools for dynamic versioning ([#15](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/15)) ([92545c7](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/92545c7754ee0c6575bfea2d9ecd64dc109353d1))
+
 ## [0.4.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.3.0...v0.4.0) (2025-07-22)
 
 
