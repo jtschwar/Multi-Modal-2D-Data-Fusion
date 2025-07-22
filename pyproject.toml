@@ -3,14 +3,15 @@ requires = [
     "setuptools>=64",
     "wheel",
     "pybind11",
+    "setuptools_scm",
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "multimodal-fusion"
-version = "0.3.0"
+dynamic = ["version"] 
 description = "Multi-Modal Electron Microscopy Data Fusion"
-authors = [{name = "Jonathan Schwartz", email = "jtschwar@umich.edu"}]
+authors = [{name = "Jonathan Schwartz", email = "jtschwar@gmail.com"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.8"
@@ -19,7 +20,7 @@ dependencies = [
     "scipy",
     "matplotlib", 
     "h5py",
-    "tqdm",
+    "tqdm",  
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -43,3 +44,5 @@ Issues = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues"
 [tool.setuptools.packages.find]
 include = ["multimodal_fusion*"]
 exclude = ["EDX*", "thirdparty*", "regularization*", "third_party*"]
+
+[tool.setuptools_scm]

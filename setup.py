@@ -18,7 +18,7 @@ ext_modules = [
         include_dirs=[
             pybind11.get_include(),
             regularization_include,
-            eigen_include,  # This should make #include <Eigen/Core> work
+            eigen_include,
         ],
         language='c++',
         cxx_std=17,
@@ -29,4 +29,5 @@ setup(
     ext_modules=ext_modules,
     cmdclass={"build_ext": build_ext},
     zip_safe=False,
+    use_scm_version=True,
 )
