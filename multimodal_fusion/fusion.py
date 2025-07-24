@@ -31,8 +31,10 @@ class DataFusion:
         self.b = None
         self.elements = elements
 
+        # Get the Periodic Table
+        self.pt_table = utils.get_periodic_table()
 
-    def load_chemical_maps(self, chemical_maps):
+    def load_chemical_maps(self, chemical_maps, method = 0):
         """
         Load chemical maps and create measurement matrix.
 
@@ -52,7 +54,11 @@ class DataFusion:
         # Parse Image Dimensions and Create Measurement Matrix
         (self.nx, self.ny) = edsMap.shape
         self.nPix = self.nx * self.ny
-        self.A = utils.create_measurement_matrix(self.nx, self.ny, self.nz)
+
+        # Default is the Unweighted Measurement Matrix
+        zNums = list(map(lambda x: self.pt_table[x.upper()], self.elements))
+        self.A = utils.create_weighted_measurement_matrix(
+            self.nx, self.ny, self.nz, zNums, self.gamma, method)
 
         # Initialize Regularization
         self.reg = ctvlib(self.nx, self.ny)
