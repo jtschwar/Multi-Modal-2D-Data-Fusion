@@ -7,8 +7,15 @@ By linking simultaneously acquired modalities through regularized optimization, 
 
 ## Installation 
 
+The package is available on PyPI:
 ```bash
 pip install multimodal-fusion
+```
+For local development, clone the repository and install in editable mode:
+```bash
+git clone https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion.git --recursive
+cd Multi-Modal-2D-Data-Fusion
+pip install -e . 
 ```
 
 ## Quick Start
@@ -20,7 +27,7 @@ from multimodal_fusion import DataFusion
 elements = ['Co', 'S', 'O']
 fusion = DataFusion(elements)
 
-# Load your chemical maps (from any software - ImageJ, Digital Micrograph, etc.)
+# Load your chemical maps
 # Provide as a dictionary where keys match your element list
 chemical_maps = {
     'Co': cobalt_map,      # 2D numpy arrays
@@ -34,13 +41,18 @@ fusion.load_haadf(haadf_image)  # 2D numpy array
 
 # Run the fusion algorithm 
 # We can adjust with regularization parameters
-fusion.run(nIter=50, lambdaTV=0.1)
+fusion.run(
+    nIter=50, lambdaHAADF= 0.005, 
+    lambdaEDS = 0.005, lambdaTV=0.1,
+    plot_images=True, plot_convergence=True)
 
 # Get results in dictionary format
 results = fusion.get_results()
 fused_cobalt = results['Co']
 fused_sulfur = results['S']
 ```
+#### Documentation
+A comprehensive tutorial for learning how to adjust the hyperparameters is available: [J. Manassa, M. Shah, et. al. "Fused Multi-Modal Electron Microscopy - A Beginner's Guide, _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
 
 ## Citation
 
@@ -50,4 +62,5 @@ If you use any of the data and source codes in your publications and/or presenta
 
 
 A tutorial for learning how to adjust the hyper-parameters is also available here: [J. Manassa, M. Shah, et. al. "Fused Multi-Modal Electron Microscopy - A Beginner's Guide, _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
+
 
