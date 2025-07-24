@@ -2,6 +2,9 @@ from multimodal_fusion import utils
 from scipy.sparse import spdiags
 from tqdm import tqdm
 import numpy as np
+import requests
+import io
+import h5py
 
 try: 
     from multimodal_fusion import ctvlib
@@ -34,6 +37,35 @@ class DataFusion:
         # Get the Periodic Table
         self.pt_table = utils.get_periodic_table()
 
+    def load_example_data(self, map_index = 0):
+        """
+        Load starter data from github repository.
+
+        Args: 
+            map_index (int, optional): Which of the 6 available datasets to load (zero indexed). Defaults to zero.
+        """
+
+        # Load url for dataset
+        url = "https://raw.githubusercontent.com/jtschwar/Multi-Modal-2D-Data-Fusion/main/EDX/CoSX_maps.h5"
+        response = requests.get(url)
+
+        # Prepare path within h5py data 
+        map_path = f"/map{map_index + 4}"
+
+        # If url is found, read in the data without saving to disk, and load Co, S, O, and HAADF.
+        if response.status_code == 200:
+            h5_data = h5py.File(io.BytesIO(response.content), "r")
+            cobalt_map = h5_data[map_path]['Co'][:]
+            sulfur_map = h5_data[map_path]['S'][:]
+            oxygen_map = h5_data[map_path]['O'][:]
+            haadf_map = h5_data[map_path]['HAADF'][:]
+            h5_data.close()
+            return cobalt_map, sulfur_map, oxygen_map, haadf_map
+        # If url is not found, exit function and return zero.
+        else:
+            print("Failed to download:", response.status_code)
+            return 0
+    
     def load_chemical_maps(self, chemical_maps, method = 0):
         """
         Load chemical maps and create measurement matrix.
