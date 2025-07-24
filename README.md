@@ -29,6 +29,8 @@ fusion = DataFusion(elements)
 
 # Load your chemical maps
 # Provide as a dictionary where keys match your element list
+# This helper function loads starter data from github
+cobalt_map, sulfur_map, oxygen_map, haadf_image = fusion.load_example_data()
 chemical_maps = {
     'Co': cobalt_map,      # 2D numpy arrays
     'S': sulfur_map, 
