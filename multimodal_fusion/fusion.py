@@ -88,7 +88,7 @@ class DataFusion:
         self.nPix = self.nx * self.ny
 
         # Default is the Unweighted Measurement Matrix
-        zNums = list(map(lambda x: self.pt_table[x.upper()], self.elements))
+        zNums = list(map(lambda x: self.pt_table[x.lower()], self.elements))
         self.A = utils.create_weighted_measurement_matrix(
             self.nx, self.ny, self.nz, zNums, self.gamma, method)
 
