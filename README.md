@@ -30,7 +30,7 @@ fusion = DataFusion(elements)
 # Load your chemical maps
 # Provide as a dictionary where keys match your element list
 # This helper function loads starter data from github
-cobalt_map, sulfur_map, oxygen_map, haadf_image = fusion.load_example_data()
+cobalt_map, sulfur_map, oxygen_map, haadf_im = fusion.load_edx_example()
 chemical_maps = {
     'Co': cobalt_map,      # 2D numpy arrays
     'S': sulfur_map, 
@@ -39,12 +39,12 @@ chemical_maps = {
 fusion.load_chemical_maps(chemical_maps)
 
 # Load the simultaneously acquired HAADF image
-fusion.load_haadf(haadf_image)  # 2D numpy array
+fusion.load_haadf(haadf_im)  # 2D numpy array
 
 # Run the fusion algorithm 
 # We can adjust with regularization parameters
 fusion.run(
-    nIter=50, lambdaHAADF= 0.005, 
+    nIter=50, 
     lambdaEDS = 0.005, lambdaTV=0.1,
     plot_images=True, plot_convergence=True)
 
