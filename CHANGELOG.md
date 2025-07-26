@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.5.0...v0.6.0) (2025-07-26)
+
+
+### Features
+
+* add feedback from hovden group ([#17](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/17)) ([2eb6838](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/2eb6838fa4618c62c959b60ccc05dfa0407e7541))
+* add starter script features. Make entry easy for users to access ([#19](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/19)) ([d6785e6](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/d6785e6e8349e5f8b210f3cd5040d05714bf818b))
+
 ## [0.5.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.4.0...v0.5.0) (2025-07-22)
 
 
