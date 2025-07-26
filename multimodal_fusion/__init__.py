@@ -1,6 +1,6 @@
 """Multi-Modal Electron Microscopy Data Fusion Package."""
 
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 
 # Import the compiled C++ module (now inside the package)
 try:
