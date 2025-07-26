@@ -2,6 +2,9 @@ from multimodal_fusion import utils
 from scipy.sparse import spdiags
 from tqdm import tqdm
 import numpy as np
+import requests
+import io
+import h5py
 
 try: 
     from multimodal_fusion import ctvlib
@@ -33,7 +36,7 @@ class DataFusion:
 
         # Get the Periodic Table
         self.pt_table = utils.get_periodic_table()
-
+    
     def load_chemical_maps(self, chemical_maps, method = 0):
         """
         Load chemical maps and create measurement matrix.
@@ -56,7 +59,7 @@ class DataFusion:
         self.nPix = self.nx * self.ny
 
         # Default is the Unweighted Measurement Matrix
-        zNums = list(map(lambda x: self.pt_table[x.upper()], self.elements))
+        zNums = list(map(lambda x: self.pt_table[x.lower()], self.elements))
         self.A = utils.create_weighted_measurement_matrix(
             self.nx, self.ny, self.nz, zNums, self.gamma, method)
 
@@ -77,7 +80,7 @@ class DataFusion:
         self.b -= np.min(self.b); 
         self.b /= np.max(self.b)
 
-    def run(self, nIter = 50, lambdaHAADF = 0.005, lambdaEDS = 0.005, ng = 15, lambdaTV = 0.1, bkg = 0.01, plot_images = True, plot_convergence = True):
+    def run(self, nIter = 50, lambdaEDS = 0.005, lambdaTV = 0.1, ng = 15, bkg = 0.1, plot_images = True, plot_convergence = True):
         """
         Run the data fusion algorithm.
 
@@ -91,6 +94,9 @@ class DataFusion:
             plot_images (bool): Whether to plot the images.
             plot_convergence (bool): Whether to plot the convergence.
         """
+
+        # Default lambdaHAADF is inverse of number of elements
+        lambdaHAADF = 1/self.nz
 
         # Check if Data is Loaded
         if self.b is None:
@@ -160,3 +166,32 @@ class DataFusion:
             path (str): Path to save the results.
         """
         utils.save_images(self.xx, self.b, self.elements, self.nx, self.ny)
+
+    def load_edx_example(self, map_index = 7):
+        """
+        Load starter data from github repository.
+
+        Args: 
+            map_index (int, optional): Which of the 6 available datasets to load (zero indexed). Defaults to zero.
+        """
+
+        # Load url for dataset
+        url = "https://raw.githubusercontent.com/jtschwar/Multi-Modal-2D-Data-Fusion/main/multimodal_fusion/example_data/demo_EDX_maps.h5"       
+        response = requests.get(url)
+
+        # Prepare path within h5py data 
+        map_path = f"/map{map_index}"
+
+        # If url is found, read in the data without saving to disk, and load Co, S, O, and HAADF.
+        if response.status_code == 200:
+            h5_data = h5py.File(io.BytesIO(response.content), "r")
+            cobalt_map = h5_data[map_path]['Co'][:]
+            sulfur_map = h5_data[map_path]['S'][:]
+            oxygen_map = h5_data[map_path]['O'][:]
+            haadf_map = h5_data[map_path]['HAADF'][:]
+            h5_data.close()
+            return cobalt_map, sulfur_map, oxygen_map, haadf_map
+        # If url is not found, exit function and return zero.
+        else:
+            print("Failed to download:", response.status_code)
+            return 0
