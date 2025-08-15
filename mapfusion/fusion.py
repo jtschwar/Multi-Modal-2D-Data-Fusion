@@ -1,4 +1,4 @@
-from multimodal_fusion import utils
+from mapfusion import utils
 from scipy.sparse import spdiags
 from tqdm import tqdm
 import numpy as np
@@ -7,10 +7,10 @@ import io
 import h5py
 
 try: 
-    from multimodal_fusion import ctvlib
+    from mapfusion import ctvlib
     cRegFlag = True
 except: 
-    from multimodal_fusion import pyreg as ctvlib
+    from mapfusion import pyreg as ctvlib
     cRegFlag = False
     print("Warning: C-libraries not found, using Python implementation of regularization.")
 

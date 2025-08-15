@@ -10,7 +10,7 @@ regularization_include = os.path.join(project_root, "regularization")
 
 ext_modules = [
     Pybind11Extension(
-        "multimodal_fusion.ctvlib",
+        "mapfusion.ctvlib",
         sources=[
             "regularization/ctvlib.cpp",
             "regularization/bindings.cpp",
