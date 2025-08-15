@@ -4,7 +4,7 @@ __version__ = "0.6.0"
 
 # Import the compiled C++ module (now inside the package)
 try:
-    from multimodal_fusion.ctvlib import ctvlib  # Import from within package
+    from mapfusion.ctvlib import ctvlib  # Import from within package
     _cpp_available = True
 except ImportError as e:
     print(f"Warning: Could not import ctvlib module: {e}")
@@ -14,4 +14,4 @@ except ImportError as e:
     _cpp_available = False
 
 # Expose main classes at package level 
-from multimodal_fusion.fusion import DataFusion
+from mapfusion.fusion import DataFusion
