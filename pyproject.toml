@@ -41,7 +41,7 @@ Issues = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues"
 
 [tool.setuptools.packages.find]
 include = ["mapfusion*"]
-exclude = ["thirdparty*", "regularization*", "third_party*"]
+exclude = ["third_party*", "regularization*"]
 
 # Tell setuptools to get version from __init__.py
 [tool.setuptools.dynamic]
