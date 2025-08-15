@@ -16,14 +16,14 @@
   ],
   "packages": {
     ".": {
-      "package-name": "multimodal-fusion",
-      "version-file": "multimodal_fusion/__init__.py",      
+      "package-name": "mapfusion",
+      "version-file": "mapfusion/__init__.py",      
       "changelog-path": "CHANGELOG.md",
       "bump-minor-pre-major": false,
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false,
-      "pull-request-footer": "Merging this PR will release multimodal-fusion on PyPI."
+      "pull-request-footer": "Merging this PR will release mapfusion on PyPI."
     }
   }
 }

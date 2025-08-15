@@ -21,7 +21,7 @@ pip install -e .
 ## Quick Start
 
 ```python
-from multimodal_fusion import DataFusion
+from mapfusion import DataFusion
 
 # Initialize fusion with list of elements
 elements = ['Co', 'S', 'O']
@@ -54,7 +54,8 @@ fused_cobalt = results['Co']
 fused_sulfur = results['S']
 ```
 #### Documentation
-A comprehensive tutorial for learning how to adjust the hyperparameters is available: [J. Manassa, M. Shah, et. al. "Fused Multi-Modal Electron Microscopy - A Beginner's Guide, _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
+
+Refer to the [comprehensive tutorial](https://www.elementalmicroscopy.com/articles/EM000003) to learn how to adjust the hyperparameters.
 
 ## Citation
 

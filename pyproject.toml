@@ -7,9 +7,9 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "multimodal-fusion"
+name = "mapfusion"
 dynamic = ["version"]
-description = "Multi-Modal Electron Microscopy Data Fusion"
+description = "Multi-Modal Electron Microscopy Data Fusion for Spectral Maps"
 authors = [{name = "Jonathan Schwartz", email = "jtschwar@gmail.com"}]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -40,9 +40,9 @@ Repository = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion.git"
 Issues = "https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues"
 
 [tool.setuptools.packages.find]
-include = ["multimodal_fusion*"]
-exclude = ["EDX*", "thirdparty*", "regularization*", "third_party*"]
+include = ["mapfusion*"]
+exclude = ["thirdparty*", "regularization*", "third_party*"]
 
 # Tell setuptools to get version from __init__.py
 [tool.setuptools.dynamic]
-version = {attr = "multimodal_fusion.__version__"}
+version = {attr = "mapfusion.__version__"}
