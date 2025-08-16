@@ -5,11 +5,13 @@ Fused multi-modal electron microscopy, a combines elastic scattering (HAADF) and
 
 By linking simultaneously acquired modalities through regularized optimization, the method can reduce dose requirements by over one order of magnitude while substantially improving SNR for chemical maps. 
 
+![Demo Screenshot](assets/demo.jpg)
+
 ## Installation 
 
 The package is available on PyPI:
 ```bash
-pip install multimodal-fusion
+pip install mapfusion
 ```
 For local development, clone the repository and install in editable mode:
 ```bash
