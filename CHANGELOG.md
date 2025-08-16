@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.7.0...v0.8.0) (2025-08-16)
+
+
+### Features
+
+* clean the readme ([#22](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/22)) ([92b38cd](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/92b38cd69913f52954d5149b715c33017a087bc1))
+
 ## [0.7.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.6.0...v0.7.0) (2025-08-15)
 
 
