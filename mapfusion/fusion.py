@@ -176,7 +176,7 @@ class DataFusion:
         """
 
         # Load url for dataset
-        url = "https://raw.githubusercontent.com/jtschwar/Multi-Modal-2D-Data-Fusion/main/multimodal_fusion/example_data/demo_EDX_maps.h5"       
+        url = "https://raw.githubusercontent.com/jtschwar/Multi-Modal-2D-Data-Fusion/main/mapfusion/example_data/demo_EDX_maps.h5"       
         response = requests.get(url)
 
         # Prepare path within h5py data 

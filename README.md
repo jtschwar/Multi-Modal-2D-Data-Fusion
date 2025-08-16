@@ -69,6 +69,6 @@ If you use any of the data and source codes in your publications and/or presenta
 
 * [J. Schwartz, Z.W. Di, et. al., "Imaging atomic-scale chemistry from fused multi-modal electron microscopy", _npj Comput. Mater._ **8**, 16 (2022).](https://www.nature.com/articles/s41524-021-00692-5)
 
-* [J. Manassa, M. Shah, et. al. "A Beginner's Guide, _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
+* [J. Manassa, M. Shah, et. al. "A Beginner's Guide", _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
 
 
