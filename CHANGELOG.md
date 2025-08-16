@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.8.0...v0.9.0) (2025-08-16)
+
+
+### Features
+
+* try fixing the workflow again.. ([#24](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/24)) ([893ee6c](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/893ee6c57a757db9823bfefc277b0587f30002f4))
+
 ## [0.8.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.7.0...v0.8.0) (2025-08-16)
 
 
