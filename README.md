@@ -1,5 +1,9 @@
 # 2D Multi-Modal Data Fusion for Electron Microscopy
 
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/mapfusion)](https://pypi.org/project/mapfusion/)
+[![Python](https://img.shields.io/pypi/pyversions/mapfusion)](https://pypi.org/project/mapfusion/)
+
 Fused multi-modal electron microscopy, a combines elastic scattering (HAADF) and inelastic spectroscopic signals (EELS/EDX) to recover high signal-to-noise ratio chemical maps at nano- and atomic-resolution. 
 
 
@@ -63,9 +67,8 @@ Refer to the [comprehensive tutorial](https://www.elementalmicroscopy.com/articl
 
 If you use any of the data and source codes in your publications and/or presentations, we request that you cite our papers:
 
-[J. Schwartz, Z.W. Di, et. al., "Imaging atomic-scale chemistry from fused multi-modal electron microscopy", _npj Comput. Mater._ **8**, 16 (2022).](https://www.nature.com/articles/s41524-021-00692-5)
+* [J. Schwartz, Z.W. Di, et. al., "Imaging atomic-scale chemistry from fused multi-modal electron microscopy", _npj Comput. Mater._ **8**, 16 (2022).](https://www.nature.com/articles/s41524-021-00692-5)
 
-
-A tutorial for learning how to adjust the hyper-parameters is also available here: [J. Manassa, M. Shah, et. al. "Fused Multi-Modal Electron Microscopy - A Beginner's Guide, _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
+* [J. Manassa, M. Shah, et. al. "A Beginner's Guide, _Elemental Microscopy_ (2024).](https://www.elementalmicroscopy.com/articles/EM000003)
 
 
