@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.9.0...v0.9.1) (2025-08-16)
+
+
+### Bug Fixes
+
+* make sure download data example points to correct path ([#26](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/issues/26)) ([ff519eb](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/commit/ff519eb77b90c00b24189e7ad3f04c8b3fa081eb))
+
 ## [0.9.0](https://github.com/jtschwar/Multi-Modal-2D-Data-Fusion/compare/v0.8.0...v0.9.0) (2025-08-16)
 
 
